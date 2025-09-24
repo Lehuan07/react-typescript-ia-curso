@@ -1,6 +1,8 @@
-import { PrimerEjercicio } from "./components/PrimerEjercicio";
-import { SegundoEjercicio } from "./components/SegundoEjercicio";
-import { TercerEjercicio } from "./components/TercerEjercicio";
+import { UseStates01 } from "./components/Ejercicios02/UseStates01"
+import { UseStates02 } from "./components/Ejercicios02/UseStates02"
+import { UseStates03 } from "./components/Ejercicios02/UseStates03"
+
+
 
 
 function App() {
@@ -8,9 +10,9 @@ function App() {
 
   return (
     <>
-  <PrimerEjercicio/>
-  <SegundoEjercicio/>
-  <TercerEjercicio/>
+      <UseStates01/>
+      <UseStates02/>
+      <UseStates03/>
     </>
   )
 }

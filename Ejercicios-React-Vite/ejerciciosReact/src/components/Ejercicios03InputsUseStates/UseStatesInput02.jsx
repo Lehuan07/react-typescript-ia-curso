@@ -4,8 +4,13 @@ import { useState } from "react"
 export const UseStatesInput02 = () =>{
 
     const [numeroUno, setNumeroUno] = useState("");
+    const [numeroDos, setNumeroDos] = useState("");
+    const [Resultado, setResultado] = useState("");
 
-
+    const sumarNumeros = () =>{
+        const suma = parseInt(numeroUno)+parseInt(numeroDos);
+        setResultado(suma)
+    }
 
     return(
         <div>
@@ -13,16 +18,23 @@ export const UseStatesInput02 = () =>{
                     name="" 
                     id="" 
                     placeholder="Numero 1"
+                    value={numeroUno}
+                    onChange={(event) =>setNumeroUno(event.target.value)}
             />
             <input type="number" 
                     name="" 
                     id="" 
                     placeholder="Numero 2"
+                    value={numeroDos}
+                    onChange={(event) =>setNumeroDos(event.target.value)}
             />
 
-            <button>Resultado</button>
+            <button
+                    onClick={sumarNumeros}>
+                        Resultado
+            </button>
 
-            <p>Resultado: {}</p>
+            <p>Resultado: {Resultado}</p>
         </div>
     )
 }

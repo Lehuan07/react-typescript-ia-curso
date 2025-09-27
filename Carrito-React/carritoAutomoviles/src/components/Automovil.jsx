@@ -1,6 +1,6 @@
 
 
-export const Automovil = ({automovil}) =>{
+export const Automovil = ({automovil, addToCart}) =>{
 
     const { name, brand, image, year, topSpeed, price } = automovil
 
@@ -17,6 +17,7 @@ export const Automovil = ({automovil}) =>{
             <button
                 type="button"
                 className="btn btn-dark w-100"
+                onClick={ ()=> addToCart(automovil) }
                 >Agregar al Carrito</button>
             </div>
         </div>

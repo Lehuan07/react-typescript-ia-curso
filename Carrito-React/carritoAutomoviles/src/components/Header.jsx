@@ -1,8 +1,8 @@
 
 
-export const Header = ({cart, removeFromCart,decressQuantity, incressQuantity, clearCart}) =>{
+export const Header = ({cart, removeFromCart,decressQuantity, incressQuantity, clearCart, cartTotal}) =>{
 
-    const cartTotal = cart.reduce((total, {quantity, price})=> {return total + (quantity*price)}, 0)
+    
     return(
         <header className="py-3 header">
             <div className="container-xl">
@@ -41,7 +41,7 @@ export const Header = ({cart, removeFromCart,decressQuantity, incressQuantity, c
                                     <img className="img-fluid" src={`/img/${image}.jpg`} alt="imagen automóvil" />
                                     </td>
                                     <td className="align-middle">{name}</td>
-                                    <td className="fw-bold align-middle">U$D-{price}</td>
+                                    <td className="fw-bold align-middle">U$D{price}</td>
                                     <td className="align-middle">
                                     <div className="d-flex align-items-center gap-4">
                                         <button 

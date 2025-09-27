@@ -1,62 +1,21 @@
-import { useState } from "react"
+import { UseCart } from "./hoock/UseCart"
 import { Automovil } from "./components/Automovil"
 import { Header } from "./components/Header"
-import {db} from "./data/db"
+
 
 function App() {
 
-  const data = db
+  const{
+    data,
+    cart,
+    addToCart,
+    removeFromCart,
+    incressQuantity,
+    decressQuantity,
+    clearCart,
+    cartTotal
 
-  const [cart, setCart] = useState([]);
-
-  function addToCart (item){
-    
-    const itemExist = cart.findIndex( automovil => automovil.id === item.id)
-
-    if(itemExist>=0){
-      const updateCart = [...cart]
-      updateCart[itemExist].quantity++
-      setCart(updateCart)
-    }else{
-      item.quantity = 1
-      setCart([...cart, item])
-    }
-  }
-
-  function removeFromCart(idRemove){
-    setCart(prevCart => prevCart.filter(automovil => automovil.id !== idRemove))
-  }
-
-  function decressQuantity(id){
-    const updatedCart = cart.map(item =>{
-      if(item.id === id && item.quantity > 1){
-        return{
-          ...item,
-          quantity: item.quantity -1
-        
-      }
-    }
-    return item
-    })
-    setCart(updatedCart)
-  }
-
-  function incressQuantity(id){
-    const incressCart = cart.map(item =>{
-      if(item.id === id && item.quantity >= 1){
-        return{
-          ...item,
-          quantity:item.quantity + 1
-        }
-      }
-      return item
-    })
-    setCart(incressCart)
-  }
-
-  function clearCart(){
-    setCart([])
-  }
+  } = UseCart()
 
   return (
     <>
@@ -67,6 +26,7 @@ function App() {
     decressQuantity={decressQuantity}
     incressQuantity={incressQuantity}
     clearCart={clearCart}
+    cartTotal={cartTotal}
     />
 
     <main className="container-xl mt-5">
@@ -76,9 +36,7 @@ function App() {
       <Automovil 
         key={automovil.id}
         automovil={automovil}
-        setCart = {setCart}
         addToCart={addToCart}
-        
       />
       ))}
       </div>
